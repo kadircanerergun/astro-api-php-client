@@ -1,13 +1,16 @@
 {
     "name": "kadircanerergun/astro-api-php-client",
     "type": "library",
-    "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
             "KCE\\AstrologyApi\\": "src/"
-        },
-        "files": [
-        ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "secure-http": false
     }
 }
