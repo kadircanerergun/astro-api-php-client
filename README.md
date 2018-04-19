@@ -13,5 +13,7 @@ How to Use
 ==========
 
 ```sh composer require kadircanerergun/astro-api-php-client ```
-```php $client = new VedicRishiClient("user_id","api_key");
-            $response = $client->getTodaysPrediction("cancer", {timezone}); ```
+```php 
+$client = new VedicRishiClient("user_id","api_key");
+$response = $client->getTodaysPrediction("cancer", {timezone}); 
+```
