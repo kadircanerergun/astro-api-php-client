@@ -12,6 +12,6 @@ mobile applications.
 How to Use
 ==========
 
-1. composer require kadircanerergun/astro-api-php-client
-2. Example: $client = new VedicRishiClient("user_id","api_key");
-            $response = $client->getTodaysPrediction("cancer", {timezone});
+```sh composer require kadircanerergun/astro-api-php-client ```
+```php $client = new VedicRishiClient("user_id","api_key");
+            $response = $client->getTodaysPrediction("cancer", {timezone}); ```
