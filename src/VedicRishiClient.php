@@ -8,6 +8,9 @@
  */
 namespace KCE\AstrologyApi;
 
+use App\Models\User\PersonalInformation;
+use Carbon\Carbon;
+
 class VedicRishiClient
 {
     private $userId = null;
@@ -405,6 +408,24 @@ class VedicRishiClient
         $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
         return $response;
     }
+
+    public function getWesternHoroscope(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'western_horoscope';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getWheelChart(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'wheel_chart/tropical';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+
 
     public function getGeoDetails($place, $rows)
     {
@@ -804,6 +825,22 @@ class VedicRishiClient
         curl_close($ch);
 
         return $response;
+    }
+
+    public function personalInformationData(PersonalInformation $personalInformation)
+    {
+        $birthDateCarbon = Carbon::parse($personalInformation->birth_date);
+        return [
+            'day' => $birthDateCarbon->day,
+            'month' => $birthDateCarbon->month,
+            'year' => $birthDateCarbon->year,
+            'hour' => $birthDateCarbon->hour,
+            'min' => $birthDateCarbon->minute,
+            'lat' => $personalInformation->latitude,
+            'lon' => $personalInformation->longitude,
+            'tzone' => $personalInformation->timezone,
+            'name' => $personalInformation->name_surname
+        ];
     }
 
 
