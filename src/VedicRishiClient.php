@@ -340,7 +340,6 @@ class VedicRishiClient
     {
         $resourceName = 'sun_sign_prediction/daily/'.$zodiacSign;
         return $this->callSunSignDailyPrediction($resourceName, $timezone);
-
     }
 
     public function getTomorrowsPrediction($zodiacSign, $timezone)
@@ -408,23 +407,6 @@ class VedicRishiClient
         $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
         return $response;
     }
-
-    public function getWesternHoroscope(PersonalInformation $personalInformation)
-    {
-        $resourceName = 'western_horoscope';
-        $data = $this->personalInformationData($personalInformation);
-        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
-        return $response;
-    }
-
-    public function getWheelChart(PersonalInformation $personalInformation)
-    {
-        $resourceName = 'wheel_chart/tropical';
-        $data = $this->personalInformationData($personalInformation);
-        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
-        return $response;
-    }
-
 
 
     public function getGeoDetails($place, $rows)
@@ -771,13 +753,121 @@ class VedicRishiClient
         return $response;
     }
 
-    public function getAscendantReport($date, $month, $year, $hour, $minute, $latitude, $longitude, $timezone)
+
+    /*
+     * Palmastrology Methods
+     */
+    public function getWesternHoroscope(PersonalInformation $personalInformation)
     {
-        $resourceName = 'general_ascendant_report';
-        $data = $this->packageHoroData($date, $month, $year, $hour, $minute, $latitude, $longitude, $timezone);
+        $resourceName = 'western_horoscope';
+        $data = $this->personalInformationData($personalInformation);
         $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
         return $response;
     }
+
+    public function getWheelChart(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'wheel_chart/tropical';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getFriendshipReport(PersonalInformation $personalInformation1, PersonalInformation $personalInformation2)
+    {
+        $resourceName = 'friendship_report/tropical';
+        $data = $this->coupleData($personalInformation1, $personalInformation2);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getZodiacCompability($sign1, $sign2)
+    {
+        $resourceName = 'zodiac_compatibility/'.$sign1.'/'.$sign2;
+        $data = [];
+        return $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+    }
+
+    public function getNumero(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'numero_table';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getLifeForecastReport(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'life_forecast_report/tropical';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getDailyTransits(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'tropical_transits/daily';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+    public function getMonthlyTransits(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'tropical_transits/monthly';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+    public function getYearlyTransits(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'tropical_transits/yearly';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getPersonalityReport(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'personality_report/tropical';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getRomanticPersonalityData(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'romantic_personality_report/tropical';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getGeneralSignReport(PersonalInformation $personalInformation, $planet)
+    {
+        $resourceName = 'general_sign_report/tropical/'.$planet;
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+
+    public function getAscendantReport(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'general_ascendant_report';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getWeklyPrediction($zodiacSign, $timezone)
+    {
+        $resourceName = 'horoscope_prediction/weekly/'.$zodiacSign;
+        return $this->callSunSignDailyPrediction($resourceName, $timezone);
+    }
+
+    /*
+     * End Palmastrology Methods
+     */
 
     /*Timezone with DST*/
     public function timezoneWithDst( $date, $latitude, $longitude)
@@ -841,6 +931,37 @@ class VedicRishiClient
             'tzone' => $personalInformation->timezone,
             'name' => $personalInformation->name_surname
         ];
+    }
+
+    private function coupleData(PersonalInformation $person1, PersonalInformation $person2, $key1="p", $key2='s')
+    {
+
+        $birthDateCarbonP = Carbon::parse($person1->birth_date);
+        $mData = [
+            $key1.'_'.'day' => $birthDateCarbonP->day,
+            $key1.'_'.'month' => $birthDateCarbonP->month,
+            $key1.'_'.'year' => $birthDateCarbonP->year,
+            $key1.'_'.'hour' => $birthDateCarbonP->hour,
+            $key1.'_'.'min' => $birthDateCarbonP->minute,
+            $key1.'_'.'lat' => $person1->latitude,
+            $key1.'_'.'lon' => $person1->longitude,
+            $key1.'_'.'tzone' => $person1->timezone,
+            $key1.'_'.'name' => $person1->name_surname
+        ];
+        $birthDateCarbonS = Carbon::parse($person2->birth_date);
+
+        $fData = [
+            $key2.'_'.'day' => $birthDateCarbonS->day,
+            $key2.'_'.'month' => $birthDateCarbonS->month,
+            $key2.'_'.'year' => $birthDateCarbonS->year,
+            $key2.'_'.'hour' => $birthDateCarbonS->hour,
+            $key2.'_'.'min' => $birthDateCarbonS->minute,
+            $key2.'_'.'lat' => $person2->latitude,
+            $key2.'_'.'lon' => $person2->longitude,
+            $key2.'_'.'tzone' => $person2->timezone,
+            $key2.'_'.'name' => $person2->name_surname
+        ];
+        return array_merge($mData, $fData);
     }
 
 
