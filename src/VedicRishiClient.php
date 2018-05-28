@@ -24,7 +24,7 @@ class VedicRishiClient
 
     /**
      * @param $uid string userId for Vedic Rishi Astro API
-     * @param $key string api key for Vedic Rishi Astro API access
+     * @param $key string api key for Vedic Rishi Astro API access s
      */
     public function __construct($uid, $key)
     {
