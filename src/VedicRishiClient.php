@@ -919,7 +919,8 @@ class VedicRishiClient
 
     public function personalInformationData(PersonalInformation $personalInformation)
     {
-        $birthDateCarbon = Carbon::parse($personalInformation->birth_date);
+        $dateTime = $personalInformation->birth_date . $personalInformation->birth_time;
+        $birthDateCarbon = Carbon::parse($dateTime);
         return [
             'day' => $birthDateCarbon->day,
             'month' => $birthDateCarbon->month,
@@ -936,7 +937,8 @@ class VedicRishiClient
     private function coupleData(PersonalInformation $person1, PersonalInformation $person2, $key1="p", $key2='s')
     {
 
-        $birthDateCarbonP = Carbon::parse($person1->birth_date);
+        $dateTime1 = $person1->birth_date . $person1->birth_time;
+        $birthDateCarbonP = Carbon::parse($dateTime1);
         $mData = [
             $key1.'_'.'day' => $birthDateCarbonP->day,
             $key1.'_'.'month' => $birthDateCarbonP->month,
@@ -948,7 +950,8 @@ class VedicRishiClient
             $key1.'_'.'tzone' => $person1->timezone,
             $key1.'_'.'name' => $person1->name_surname
         ];
-        $birthDateCarbonS = Carbon::parse($person2->birth_date);
+        $dateTime2 = $person1->birth_date . $person1->birth_time;
+        $birthDateCarbonS = Carbon::parse($dateTime2);
 
         $fData = [
             $key2.'_'.'day' => $birthDateCarbonS->day,
