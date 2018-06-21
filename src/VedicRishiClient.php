@@ -865,6 +865,12 @@ class VedicRishiClient
         return $this->callSunSignDailyPrediction($resourceName, $timezone);
     }
 
+    public function getMonthlyPrediction($zodiacSign, $timezone)
+    {
+        $resourceName = 'horoscope_prediction/monthly/'.$zodiacSign;
+        return $this->callSunSignDailyPrediction($resourceName, $timezone);
+    }
+
     /*
      * End Palmastrology Methods
      */
