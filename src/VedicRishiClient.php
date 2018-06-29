@@ -859,6 +859,22 @@ class VedicRishiClient
         return $response;
     }
 
+    public function getBiorythm(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'biorhythm';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function callPackage(PersonalInformation $personalInformation, $resourceName)
+    {
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+
     public function getWeklyPrediction($zodiacSign, $timezone)
     {
         $resourceName = 'horoscope_prediction/weekly/'.$zodiacSign;
