@@ -788,6 +788,13 @@ class VedicRishiClient
         return $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
     }
 
+    public function getZodiacCompabilityOverall($sign1, $sign2)
+    {
+        $resourceName = 'zodiac_compatibility_overall/'.$sign1.'/'.$sign2;
+        $data = [];
+        return $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+    }
+
     public function getNumero(PersonalInformation $personalInformation)
     {
         $resourceName = 'numero_table';
@@ -881,7 +888,7 @@ class VedicRishiClient
         return $this->callSunSignDailyPrediction($resourceName, $timezone);
     }
 
-    public function getMonthlyPrediction($zodiacSign, $timezone)
+    public function getMonthlyPrediction($zodiacSign, $timezone = null)
     {
         $resourceName = 'horoscope_prediction/monthly/'.$zodiacSign;
         return $this->callSunSignDailyPrediction($resourceName, $timezone);
