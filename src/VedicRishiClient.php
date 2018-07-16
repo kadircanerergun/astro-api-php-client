@@ -773,6 +773,14 @@ class VedicRishiClient
         return $response;
     }
 
+    public function getNumeroPrediction(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'numero_prediction/daily';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
     public function getFriendshipReport(PersonalInformation $personalInformation1, PersonalInformation $personalInformation2)
     {
         $resourceName = 'friendship_report/tropical';
