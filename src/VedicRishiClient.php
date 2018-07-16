@@ -789,6 +789,20 @@ class VedicRishiClient
         return $response;
     }
 
+    public function callWithPersonalInformation($resourceName, $personalInfo)
+    {
+        $data = $this->personalInformationData($personalInfo);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function callCoupleDataWithPersonalInformation($resourceName, PersonalInformation $personalInformation1, PersonalInformation $personalInformation2)
+    {
+        $data = $this->coupleData($personalInformation1, $personalInformation2);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
     public function getZodiacCompability($sign1, $sign2)
     {
         $resourceName = 'zodiac_compatibility/'.$sign1.'/'.$sign2;

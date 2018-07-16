@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47e2169c-7ad8-46c3-97c8-98e0cdd96a54" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VedicRishiClient.php" afterPath="$PROJECT_DIR$/src/VedicRishiClient.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +18,8 @@
       <file leaf-file-name="VedicRishiClient.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/VedicRishiClient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="777" column="48" lean-forward="false" selection-start-line="777" selection-start-column="48" selection-end-line="777" selection-end-column="48" />
+            <state relative-caret-position="536">
+              <caret line="801" column="0" lean-forward="false" selection-start-line="801" selection-start-column="0" selection-end-line="801" selection-end-column="0" />
               <folding>
                 <element signature="e#212#252#0#PHP" expanded="true" />
               </folding>
@@ -267,7 +268,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1486000" />
+    <option name="totallyTimeSpent" value="1605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-180" width="1920" height="1080" extended-state="0" />
@@ -455,8 +456,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/VedicRishiClient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="777" column="48" lean-forward="false" selection-start-line="777" selection-start-column="48" selection-end-line="777" selection-end-column="48" />
+        <state relative-caret-position="536">
+          <caret line="801" column="0" lean-forward="false" selection-start-line="801" selection-start-column="0" selection-end-line="801" selection-end-column="0" />
           <folding>
             <element signature="e#212#252#0#PHP" expanded="true" />
           </folding>
