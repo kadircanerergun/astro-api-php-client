@@ -803,6 +803,12 @@ class VedicRishiClient
         return $response;
     }
 
+    public function callWithData($data, $resourceName)
+    {
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
     public function getZodiacCompability($sign1, $sign2)
     {
         $resourceName = 'zodiac_compatibility/'.$sign1.'/'.$sign2;
@@ -881,6 +887,14 @@ class VedicRishiClient
 
 
     public function getAscendantReport(PersonalInformation $personalInformation)
+    {
+        $resourceName = 'general_ascendant_report';
+        $data = $this->personalInformationData($personalInformation);
+        $response = $this->getCurlResponse($this->userId, $this->apiKey, $resourceName, $data, $this->language);
+        return $response;
+    }
+
+    public function getPdfReport(PersonalInformation $personalInformation)
     {
         $resourceName = 'general_ascendant_report';
         $data = $this->personalInformationData($personalInformation);
