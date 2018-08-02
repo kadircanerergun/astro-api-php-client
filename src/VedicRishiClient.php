@@ -17,6 +17,10 @@ class VedicRishiClient
     private $apiKey = null;
     private $language = null;
 
+    private $endPoint;
+    private $apiVersion;
+
+
     //TODO: MUST enable this on production- MUST
     //private $apiEndPoint = "https://api.vedicrishiastro.com/v1";
 
@@ -30,6 +34,8 @@ class VedicRishiClient
     {
         $this->userId = $uid;
         $this->apiKey = $key;
+        $this->endPoint = "http://json.astrologyapi.com/";
+        $this->apiVersion = "v1";
     }
 
 
@@ -952,7 +958,7 @@ class VedicRishiClient
 
     private function getCurlResponse($userId, $apiKey, $resource, array $data, $language)
     {
-        $apiEndPoint = "http://json.astrologyapi.com/v1";
+        $apiEndPoint = $this->endPoint.$this->apiVersion;
 
 
         $serviceUrl = $apiEndPoint.'/'.$resource.'/';
@@ -1030,6 +1036,23 @@ class VedicRishiClient
             $key2.'_'.'name' => $person2->name_surname
         ];
         return array_merge($mData, $fData);
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndPoint()
+    {
+        return $this->endPoint;
+    }
+
+    /**
+     * @param string $endPoint
+     */
+    public function setEndPoint($endPoint)
+    {
+        $this->endPoint = $endPoint;
+        return $this;
     }
 
 
